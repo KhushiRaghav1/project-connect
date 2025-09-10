@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 font-inter antialiased">
+
+    <div id="custom-modal" class="modal hidden">
+        <div class="modal-content bg-white rounded-lg shadow-xl p-6 max-w-sm">
+            <div id="modal-message" class="text-gray-800 mb-4"></div>
+            <div id="modal-actions" class="text-center">
+                <button id="modal-ok-btn" class="modal-btn px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="min-h-screen flex flex-col">
+        <header class="header bg-white shadow-md p-4">
+            <div class="header-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><circle cx="12" cy="12" r="10"/><path d="M14.5 9.5a2.5 2.5 0 0 0-5 0M10.5 15.5a2.5 2.5 0 0 0 5 0"/></svg>
+                <h1 class="text-2xl font-bold text-gray-800">ProjectConnect</h1>
+            </div>
+            <nav class="nav space-x-4">
+                <a href="#home" class="nav-item active" data-page="home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <span>Home</span>
+                </a>
+                <a href="#projects" class="nav-item" data-page="projects">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><path d="M16 21V7a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v14"/><line x1="12" y1="12" x2="12" y2="12"/></svg>
+                    <span>Projects</span>
+                </a>
+                <a href="#create-project" class="nav-item" data-page="create-project">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    <span>Create Project</span>
+                </a>
+                <a href="#find-team" class="nav-item" data-page="find-team">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    <span>Find Team</span>
+                </a>
+                <a href="#profile" class="nav-item" data-page="profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span>Profile</span>
+                </a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section id="home-page" class="page active">
+                <div class="container mx-auto px-4 py-8">
+                    <div class="card p-8 text-center">
+                        <h2 class="text-4xl font-extrabold text-gray-800 mb-4">Welcome to ProjectConnect!</h2>
+                        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                            Your ultimate platform for college students and enthusiasts to team up, create, and share amazing projects.
+                        </p>
+                        <div class="cta-buttons">
+                            <button id="home-create-project" class="btn px-8 py-3 rounded-full text-lg font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-lg transform hover:scale-105">
+                                Start a New Project
+                            </button>
+                            <button id="home-find-team" class="btn px-8 py-3 rounded-full text-lg font-semibold bg-purple-600 text-white hover:bg-purple-700 shadow-lg transform hover:scale-105">
+                                Find a Team
+                            </button>
+                            <button id="home-explore-projects" class="btn px-8 py-3 rounded-full text-lg font-semibold bg-green-600 text-white hover:bg-green-700 shadow-lg transform hover:scale-105">
+                                Explore Projects
+                            </button>
+                        </div>
+                    </div>
+
+                    <section class="feature-section">
+                        <div class="feature-card transform hover:scale-105">
+                            <div class="feature-icon bg-blue-100"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Find Your Team</h3>
+                            <p class="text-gray-600">Connect with like-minded individuals and form powerful teams for your next big idea.</p>
+                        </div>
+                        <div class="feature-card transform hover:scale-105">
+                            <div class="feature-icon bg-purple-100"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-600"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Create & Share</h3>
+                            <p class="text-gray-600">Bring your project ideas to life. Create, manage, and share your work with the community.</p>
+                        </div>
+                        <div class="feature-card transform hover:scale-105">
+                            <div class="feature-icon bg-green-100"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Build Your Profile</h3>
+                            <p class="text-gray-600">Showcase your skills, experience, and past projects. Build a strong portfolio that opens doors to new opportunities.</p>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <section id="projects-page" class="page hidden">
+                <div class="container mx-auto px-4 py-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Explore Projects</h2>
+                    <div id="projects-list" class="projects-grid">
+                        </div>
+                    <div id="no-projects-message" class="card p-8 text-center hidden">
+                        <p class="text-xl mb-4 text-gray-600">No projects found yet. Be the first to create one!</p>
+                        <button id="create-first-project-btn" class="btn px-6 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700">Create a Project</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="create-project-page" class="page hidden">
+                <div class="container mx-auto px-4 py-8">
+                    <div class="card p-8 max-w-2xl mx-auto">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Create a New Project</h2>
+                        <form id="create-project-form" class="form-container">
+                            <div>
+                                <label for="projectName" class="form-label text-gray-700 text-sm font-medium mb-1">Project Name</label>
+                                <input type="text" id="projectName" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="e.g., AI Chatbot for Learning" required>
+                            </div>
+                            <div>
+                                <label for="description" class="form-label text-gray-700 text-sm font-medium mb-1">Description</label>
+                                <textarea id="description" rows="4" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Briefly describe your project..." required></textarea>
+                            </div>
+                            <div>
+                                <label for="subjectDomain" class="form-label text-gray-700 text-sm font-medium mb-1">Subject Domain</label>
+                                <input type="text" id="subjectDomain" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="e.g., Computer Science, Biology, Arts" required>
+                            </div>
+                            <div>
+                                <label for="requiredSkills" class="form-label text-gray-700 text-sm font-medium mb-1">Required Skills (comma-separated)</label>
+                                <input type="text" id="requiredSkills" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="e.g., Python, React, Data Analysis">
+                            </div>
+                            <div class="form-grid">
+                                <div>
+                                    <label for="requiredAcademicField" class="form-label text-gray-700 text-sm font-medium mb-1">Required Academic Field</label>
+                                    <select id="requiredAcademicField" class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg"></select>
+                                </div>
+                                <div>
+                                    <label for="requiredYearOfStudy" class="form-label text-gray-700 text-sm font-medium mb-1">Required Year of Study</label>
+                                    <select id="requiredYearOfStudy" class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg"></select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="projectStatus" class="form-label text-gray-700 text-sm font-medium mb-1">Project Status</label>
+                                <select id="projectStatus" class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg"></select>
+                            </div>
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="isTeamProject" class="h-4 w-4 text-blue-600 rounded">
+                                <label for="isTeamProject" class="ml-2 block text-gray-700 text-sm font-medium">Looking for a team for this project?</label>
+                            </div>
+                            <button type="submit" class="btn w-full px-6 py-3 rounded-lg text-lg font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-lg">Create Project</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section id="profile-page" class="page hidden">
+                <div class="container mx-auto px-4 py-8">
+                    <div class="card p-8 max-w-2xl mx-auto">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Your Profile</h2>
+                        <form id="profile-form" class="form-container">
+                            <div>
+                                <label for="profileName" class="form-label text-gray-700 text-sm font-medium mb-1">Your Name</label>
+                                <input type="text" id="profileName" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Your Name" required>
+                            </div>
+                            <div>
+                                <label for="profileSkills" class="form-label text-gray-700 text-sm font-medium mb-1">Your Skills (comma-separated)</label>
+                                <input type="text" id="profileSkills" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="e.g., Python, Web Development">
+                            </div>
+                            <div>
+                                <label for="profileInterests" class="form-label text-gray-700 text-sm font-medium mb-1">Your Interests (comma-separated)</label>
+                                <input type="text" id="profileInterests" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="e.g., Machine Learning, Renewable Energy">
+                            </div>
+                            <div class="form-grid">
+                                <div>
+                                    <label for="academicField" class="form-label text-gray-700 text-sm font-medium mb-1">Your Academic Field</label>
+                                    <select id="academicField" class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg"></select>
+                                </div>
+                                <div>
+                                    <label for="yearOfStudy" class="form-label text-gray-700 text-sm font-medium mb-1">Your Year of Study</label>
+                                    <select id="yearOfStudy" class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg"></select>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="profileExperience" class="form-label text-gray-700 text-sm font-medium mb-1">Work Experience / Bio</label>
+                                <textarea id="profileExperience" rows="5" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" placeholder="Tell us about your past projects, work experience, or anything you'd like to share."></textarea>
+                            </div>
+                            <button type="submit" class="btn w-full px-6 py-3 rounded-lg text-lg font-semibold bg-green-600 text-white hover:bg-green-700 shadow-lg">Save Profile</button>
+                        </form>
+                        <div class="profile-info">
+                            <p>Your unique identifier: <span id="user-id" class="font-mono break-all"></span></p>
+                        </div>
+                    </div>
+                    <div class="card p-8 max-w-2xl mx-auto mt-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">My Projects</h2>
+                        <div id="my-projects-list" class="my-projects-list">
+                            </div>
+                        <p id="no-my-projects-message" class="text-gray-600 text-center hidden">You haven't created any projects yet.</p>
+                    </div>
+                    <div id="edit-project-modal" class="modal hidden">
+                        <div class="modal-content bg-white rounded-lg shadow-xl p-6 max-w-xl">
+                            <h3 id="edit-modal-title" class="text-2xl font-bold text-gray-800 mb-6 text-center">Edit Project</h3>
+                            <form id="edit-project-form" class="form-container">
+                                <input type="hidden" id="edit-project-id">
+                                <div>
+                                    <label for="editProjectName" class="form-label text-gray-700 text-sm font-medium mb-1">Project Name</label>
+                                    <input type="text" id="editProjectName" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+                                </div>
+                                <div>
+                                    <label for="editDescription" class="form-label text-gray-700 text-sm font-medium mb-1">Description</label>
+                                    <textarea id="editDescription" rows="3" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" required></textarea>
+                                </div>
+                                <div>
+                                    <label for="editSubjectDomain" class="form-label text-gray-700 text-sm font-medium mb-1">Subject Domain</label>
+                                    <input type="text" id="editSubjectDomain" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg" required>
+                                </div>
+                                <div>
+                                    <label for="editRequiredSkills" class="form-label text-gray-700 text-sm font-medium mb-1">Required Skills (comma-separated)</label>
+                                    <input type="text" id="editRequiredSkills" class="form-input w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                </div>
+                                <div class="form-grid">
+                                    <div>
+                                        <label for="editRequiredAcademicField" class="form-label text-gray-700 text-sm font-medium mb-1">Required Academic Field</label>
+                                        <select id="editRequiredAcademicField" class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg"></select>
+                                    </div>
+                                    <div>
+                                        <label for="editRequiredYearOfStudy" class="form-label text-gray-700 text-sm font-medium mb-1">Required Year of Study</label>
+                                        <select id="editRequiredYearOfStudy" class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg"></select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="editProjectStatus" class="form-label text-gray-700 text-sm font-medium mb-1">Project Status</label>
+                                    <select id="editProjectStatus" class="form-select w-full px-4 py-2 border border-gray-300 rounded-lg"></select>
+                                </div>
+                                <div class="form-checkbox">
+                                    <input type="checkbox" id="editIsTeamProject" class="h-4 w-4 text-blue-600 rounded">
+                                    <label for="editIsTeamProject" class="ml-2 block text-gray-700 text-sm font-medium">Looking for a team?</label>
+                                </div>
+                                <div class="modal-actions">
+                                    <button type="button" id="edit-modal-cancel" class="modal-btn px-5 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100">Cancel</button>
+                                    <button type="submit" class="modal-btn px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">Update Project</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="find-team-page" class="page hidden">
+                <div class="container mx-auto px-4 py-8">
+                    <div class="card p-8 max-w-2xl mx-auto">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Find Your Perfect Match</h2>
+                        <p class="text-gray-600 mb-4 text-center">
+                            Leverage our AI to find projects that need your skills or discover collaborators with complementary expertise.
+                        </p>
+                        <form id="find-team-form" class="find-team-form flex flex-col sm:flex-row gap-4 mb-8">
+                            <input type="text" id="search-query" class="flex-grow form-input px-4 py-2 border border-gray-300 rounded-lg" placeholder="Search for skills, project types, or interests...">
+                            <select id="target-academic-field" class="form-select px-4 py-2 border border-gray-300 rounded-lg"></select>
+                            <select id="target-year-of-study" class="form-select px-4 py-2 border border-gray-300 rounded-lg"></select>
+                            <button type="submit" class="btn px-6 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 shadow-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                                Find Matches
+                            </button>
+                        </form>
+                        <div id="matching-results-container">
+                            <p id="no-matches-message" class="text-xl text-gray-600 text-center hidden">No matches found.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="footer bg-gray-800 text-white p-4 text-sm text-center">
+            <p>&copy; 2024 ProjectConnect. All rights reserved.</p>
+            <p>Your User ID: <span id="footer-user-id" class="font-mono text-blue-300 break-all"></span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
